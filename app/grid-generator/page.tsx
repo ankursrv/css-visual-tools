@@ -541,7 +541,7 @@ export default function App() {
                   }}
                   className="w-full bg-zinc-950 border border-zinc-700 hover:border-emerald-500/70 focus:border-emerald-500 rounded-lg px-2 py-1.5 text-xs font-medium text-zinc-100 transition-colors cursor-pointer outline-none"
                 >
-                  {Array.from({ length: 16 }, (_, i) => i + 1).map((n) => (
+                  {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
                     <option key={`col-${n}`} value={n}>
                       {n}
                     </option>
@@ -564,7 +564,7 @@ export default function App() {
                   }
                   className="w-full bg-zinc-950 border border-zinc-700 hover:border-emerald-500/70 focus:border-emerald-500 rounded-lg px-2 py-1.5 text-xs font-medium text-zinc-100 transition-colors cursor-pointer outline-none"
                 >
-                  {Array.from({ length: 16 }, (_, i) => i + 1).map((n) => (
+                  {Array.from({ length: 12 }, (_, i) => i + 1).map((n) => (
                     <option key={`row-${n}`} value={n}>
                       {n}
                     </option>
