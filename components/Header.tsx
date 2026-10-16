@@ -140,14 +140,14 @@ export default function Header() {
                           </div>
 
                           <Link
-                            href="/ui/nextjs/components"
+                            href="/banking"
                             className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-400 text-zinc-700 dark:text-zinc-300 transition-all text-xs font-semibold"
                           >
-                            <span className="text-base">🧩</span>
+                            <span className="text-base">🏦</span>
                             <div className="flex flex-col text-left">
-                              <span>UI Components</span>
+                              <span>Banking UI</span>
                               <span className="text-[10px] text-zinc-400 font-normal">
-                                Buttons, Cards, Inputs
+                                Accounts, Cards & Transfers
                               </span>
                             </div>
                           </Link>
