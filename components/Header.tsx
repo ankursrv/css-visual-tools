@@ -28,7 +28,7 @@ export default function Header() {
           : "bg-background/40 backdrop-blur-sm border-transparent py-5 shadow-sm shadow-foreground/5"
       }`}
     >
-      <div className="container grid grid-cols-3 items-center">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 items-center">
         {/* Left Side: Logo */}
         <div className="flex justify-start">
           <Link href="/" className="flex items-center gap-3 group">
