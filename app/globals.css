@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@utility container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: 0;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
