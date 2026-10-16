@@ -1,0 +1,213 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Design tokens — extend these to customise the entire app.
+   ============================================================ */
+
+@theme inline {
+  /* Brand colours */
+  --color-brand-50: oklch(0.97 0.02 250);
+  --color-brand-100: oklch(0.93 0.05 250);
+  --color-brand-200: oklch(0.85 0.1 250);
+  --color-brand-300: oklch(0.75 0.15 250);
+  --color-brand-400: oklch(0.65 0.18 250);
+  --color-brand-500: oklch(0.55 0.2 250);
+  --color-brand-600: oklch(0.47 0.2 250);
+  --color-brand-700: oklch(0.4 0.18 250);
+  --color-brand-800: oklch(0.33 0.15 250);
+  --color-brand-900: oklch(0.26 0.1 250);
+
+  /* Ujjivan brand colours */
+  --color-brand-teal: #056262;
+  --color-brand-teal-dark: #044e4e;
+  --color-brand-orange: #f78f35;
+  --color-brand-orange-dark: #e67c1d;
+
+  /* Semantic surface colours */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Typography — brand fonts declared via @font-face below (files in public/fonts).
+     Ubuntu is the global body font; Roboto is applied to header/footer.
+     Only weights actually used in the UI are declared (400/500/600/700). */
+  --font-ubuntu: 'Ubuntu', 'Helvetica', sans-serif;
+  --font-roboto: 'Roboto', 'Helvetica', sans-serif;
+}
+
+/* ============================================================
+   Brand fonts — files live in public/fonts, served at /fonts
+   (WOFF2 — Brotli-compressed; originals kept as .ttf)
+   ============================================================ */
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   CSS custom properties for light / dark mode
+   ============================================================ */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ============================================================
+   Base styles
+   ============================================================ */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-ubuntu);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header & footer use Roboto; everything else inherits Ubuntu from <body>. */
+header,
+footer {
+  font-family: var(--font-roboto);
+}
+
+/* Skip-to-content link for keyboard accessibility */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: #1d4ed8;
+  color: #fff;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 1rem;
+}
+
+/* Hide scrollbar for clean horizontal tab strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ============================================================
+   Layout Utilities
+   ============================================================ */
+
+.global-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .global-container {
+    padding-inline: 100px;
+  }
+}
+
+/* Hero banner backdrop. The banner artwork is capped to a centred 1440px
+   canvas (see HeroBanner); on wider viewports these edge fills continue the
+   artwork's own border colours so no seam appears: a flat dark-orange left
+   edge (extended ~40px past the artwork edge to sit under the feathered
+   mask below) and the banner's right-edge top-to-bottom gradient. */
+.hero-banner-bg {
+  background-color: #cb5c00;
+  background-image:
+    linear-gradient(to right, #cb5c00 calc(50% - 680px), rgba(0, 0, 0, 0) calc(50% - 680px)),
+    linear-gradient(to bottom, #e37a09, #bf5c00);
+}
+
+/* Feather the capped artwork's side edges into the backdrop on wide
+   viewports, so neither the resampled 1px edge hairline nor the cropped
+   light-rays create a hard vertical seam next to the banner. */
+@media (min-width: 1440px) {
+  .hero-banner-img {
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0,
+        #000 36px,
+        #000 calc(100% - 36px),
+        transparent 100%);
+    mask-image: linear-gradient(to right,
+        transparent 0,
+        #000 36px,
+        #000 calc(100% - 36px),
+        transparent 100%);
+  }
+}
