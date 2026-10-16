@@ -22,6 +22,7 @@ export interface BreadcrumbProps {
 function formatSegmentTitle(segment: string): string {
   const dictionary: Record<string, string> = {
     banking: "Banking UI",
+    "nextjs-foundation": "Next.js Foundation",
     "grid-generator": "Grid Generator",
     ui: "UI Library",
     nextjs: "Next.js",

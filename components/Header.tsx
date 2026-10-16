@@ -23,7 +23,9 @@ export default function Header() {
   const isUiActive = pathname.startsWith("/ui");
 
   // Do not render the main platform header on standalone UI templates that have their own custom headers
-  const isStandaloneTemplate = pathname.startsWith("/banking");
+  const isStandaloneTemplate =
+    pathname.startsWith("/banking") ||
+    pathname.startsWith("/nextjs-foundation");
   if (isStandaloneTemplate) {
     return null;
   }
@@ -150,6 +152,19 @@ export default function Header() {
                               <span>Banking UI</span>
                               <span className="text-[10px] text-zinc-400 font-normal">
                                 Accounts, Cards & Transfers
+                              </span>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href="/nextjs-foundation"
+                            className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-400 text-zinc-700 dark:text-zinc-300 transition-all text-xs font-semibold"
+                          >
+                            <span className="text-base">💎</span>
+                            <div className="flex flex-col text-left">
+                              <span>Next.js Foundation</span>
+                              <span className="text-[10px] text-zinc-400 font-normal">
+                                Finpay App & Treasury Platform
                               </span>
                             </div>
                           </Link>
