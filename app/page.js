@@ -4,6 +4,7 @@ import SiteHeader from "@/components/landing/SiteHeader";
 import Hero from "@/components/landing/Hero";
 import { ExperienceCard } from "@/data/experienceCard";
 import { STEPS } from "@/data/steps";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const LOGO_URL = "/finpay-logo.svg";
 
@@ -26,10 +27,17 @@ function Icon({ name, className = "" }) {
 export default function Page() {
   return (
     <>
+      {/* Top Breadcrumb Navigation Bar - Redirects to Home */}
+      <div className="w-full bg-zinc-950 text-white border-b border-zinc-800/80 py-2.5 px-4 sm:px-6 lg:px-12 z-50">
+        <div className="max-w-[1440px] w-full mx-auto flex items-center">
+          <Breadcrumb items={[{ label: "Next.js Foundation" }]} />
+        </div>
+      </div>
+
       {/* ============================ HEADER ============================ */}
       <SiteHeader logoUrl={LOGO_URL} />
 
-      <main className="w-full pt-20 bg-surface">
+      <main className="w-full bg-surface">
         <div className="flex flex-col w-full">
           {/* Ambient glow orbs */}
           <div className="relative w-full overflow-hidden">
