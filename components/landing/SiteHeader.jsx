@@ -2,11 +2,10 @@ import Link from "next/link";
 import Icon from "@/components/finpay/Icon";
 import { NAV_LINKS } from "@/data/nav";
 
-// Sticky landing page header: brand, desktop nav, sign-in + mobile CSS-only menu.
-// Sticky (not fixed) so the top breadcrumb bar stays visible above it, mirroring the banking template.
+// Fixed landing page header: brand, desktop nav, sign-in + mobile CSS-only menu.
 export default function SiteHeader({ logoUrl }) {
   return (
-    <header className="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
       <div className="h-20 max-w-[1200px] mx-auto px-gutter flex items-center justify-between">
         <div className="flex items-center gap-space-lg">
           <a className="flex items-center gap-space-sm" href="#">
