@@ -37,7 +37,7 @@ export default function Page() {
       {/* ============================ HEADER ============================ */}
       <SiteHeader logoUrl={LOGO_URL} />
 
-      <main className="w-full pt-20 bg-surface">
+      <main className="w-full bg-surface">
         <div className="flex flex-col w-full">
           {/* Ambient glow orbs */}
           <div className="relative w-full overflow-hidden">
