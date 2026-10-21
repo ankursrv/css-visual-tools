@@ -32,9 +32,13 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${isScrolled
-          ? "bg-background/90 backdrop-blur-md border-foreground/10 py-3 shadow-md shadow-foreground/5"
-          : "bg-background/60 backdrop-blur-sm border-transparent py-5 shadow-sm shadow-foreground/5"
+      // Padding is kept constant (py-4) across scroll. A sticky header is in the
+      // document flow, so changing its height on scroll would shift the page
+      // content and cause a visible "jump" (seen on tall pages like /grid-generator).
+      // Only the background/shadow react to scroll here, never the height.
+      className={`sticky top-0 left-0 right-0 z-50 border-b py-4 transition-all duration-300 ${isScrolled
+          ? "bg-background/90 backdrop-blur-md border-foreground/10 shadow-md shadow-foreground/5"
+          : "bg-background/60 backdrop-blur-sm border-transparent shadow-sm shadow-foreground/5"
         }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-3 items-center">
