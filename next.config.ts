@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
 
+  // Tailwind CSS v4 via the Turbopack-native loader (shared toolchain with development)
+  turbopack: {
+    rules: {
+      '*.css': {
+        loaders: ['@tailwindcss/turbopack'],
+        as: '*.css',
+      },
+    },
+  },
+
   // Security headers
   async headers() {
     return [
